@@ -1,11 +1,12 @@
 from django.urls import path
+from accounts.views import SignUpView
 
 from .views import (
     BlogListView,
     BlogDetailView,
     BlogCreateView,
     BlogUpdateView,
-    BlogDeleteView
+    BlogDeleteView,
 )
 
 urlpatterns = [
@@ -16,4 +17,5 @@ urlpatterns = [
     path('post/new/', BlogCreateView.as_view(), name='post_new'),
     path('post/<int:pk>/', BlogDetailView.as_view(), name='post_detail'),
     path('', BlogListView.as_view(), name='home'),
+    path('accounts/',SignUpView.as_view(),name='signup'),
 ]
